@@ -1,0 +1,21 @@
+import { create } from "../utils/create.js"
+
+module.exports.handler = async (event) => {
+    const { eventID, walletID, fixedTickets, fixedMulti, holdingTickets, holdingMulti, totalTickets } = JSON.parse(event.body)
+
+    const pk = `ENTRY#${eventID.split("#")[1]}`
+    const sk = `USER#${walletID}`
+    const tableName = process.env.TABLE_NAME
+    const item = { PK: pk, SK: sk, FixedTickets: fixedTickets, FixedMulti: fixedMulti, HoldingTickets: holdingTickets, HoldingMulti: holdingMulti, TotalTickets: totalTickets }
+    const condExpress = "attribute_not_exists(PK)"
+
+    const res = await create(tableName, item, condExpress)
+
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify({
+            res
+        })
+    }
+    return response
+}
