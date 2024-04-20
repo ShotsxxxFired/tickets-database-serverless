@@ -1,9 +1,6 @@
 import { query } from "../utils/query.js"
 
 module.exports.handler = async (event) => {
-    const { contractAddress } = event.pathParameters
-
-
     const pk = `CONTRACT#`
     const tableName = process.env.TABLE_NAME
     const keyExpression = "PK = :pk"

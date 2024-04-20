@@ -38,145 +38,189 @@ functions:
     - http:
           path: /collectionconfig
           method: post
+          private: true
   getCollectionConfig:
     handler: src/handlers/getCollectionConfig.handler
     events:
     - http:
           path: /contractaddress/{contractAddress}/ID/{collectionID}
           method: get
+          private: true
   createContractConfig:
     handler: src/handlers/createContractConfig.handler
     events:
     - http:
           path: /contractconfig
           method: post
+          private: true
   getContractConfig:
     handler: src/handlers/getContractConfig.handler
     events:
     - http:
           path: /contractaddress/{contractAddress}
           method: get
+          private: true
   createEntry:
     handler: src/handlers/createEntry.handler
     events:
     - http:
           path: /entry
           method: post
+          private: true
   getEntry:
     handler: src/handlers/getEntry.handler
     events:
     - http:
           path: /event/{eventID}/entry
-          method: get          
+          method: get
+          private: true          
   createEvent:
     handler: src/handlers/createEvent.handler
     events:
     - http:
           path: /event
-          method: post  
+          method: post
+          private: true  
   getEvent:
     handler: src/handlers/getEvent.handler
     events:
     - http:
           path: /event/{eventID}
           method: get
+          private: true
   createPromo:
     handler: src/handlers/createPromo.handler
     events:
     - http:
           path: /promo
           method: post
+          private: true
   getPromo:
     handler: src/handlers/getPromo.handler
     events:
     - http:
           path: /event/{eventID}/promo/{code}
           method: get
+          private: true
   createPromoEntry:
     handler: src/handlers/createPromoEntry.handler
     events:
     - http:
           path: /promoentry
           method: post
+          private: true
   getPromoEntry:
     handler: src/handlers/getPromoEntry.handler
     events:
     - http:
           path: /event/{eventID}/wallet/{walletID}/promo
           method: get
+          private: true
   createSocial:
     handler: src/handlers/createSocial.handler
     events:
     - http:
           path: /social
           method: post
+          private: true
   getSocial:
     handler: src/handlers/getSocial.handler
     events:
     - http:
           path: /social/{socialID}
           method: get
+          private: true
   createSocialEntry:
     handler: src/handlers/createSocialEntry.handler
     events:
     - http:
           path: /socialentry
           method: post
+          private: true
   getSocialEntry:
     handler: src/handlers/getSocialEntry.handler
     events:
     - http:
           path: /event/{eventID}/wallet/{walletID}/social
           method: get
+          private: true
   createUser:
     handler: src/handlers/createUser.handler
     events:
     - http:
           path: /user
           method: post
+          private: true
   getUser:
     handler: src/handlers/getUser.handler
     events:
     - http:
           path: /wallet/{walletID}
           method: get
+          private: true
   queryActiveSocial:
     handler: src/handlers/queryActiveSocial.handler
     events:
     - http:
           path: /year/{year}/social
           method: get
+          private: true
   queryCollectionConfig:
     handler: src/handlers/queryCollectionConfig.handler
     events:
     - http:
           path: /contract/{contractAddress}/collection
           method: get
+          private: true
   queryContractConfig:
-    handler: src/handlers/queryCollectionConfig.handler
+    handler: src/handlers/queryContractConfig.handler
     events:
     - http:
-          path: /contract/{contractAddress}/contract
+          path: /contract/all
           method: get
+          private: true
   queryEntriesByEvent:
     handler: src/handlers/queryEntriesByEvent.handler
     events:
     - http:
           path: /event/{eventID}/entries
           method: get
+          private: true
   queryRecentEvents:
     handler: src/handlers/queryRecentEvents.handler
     events:
     - http:
           path: /time/{yearMonth}/events
           method: get
+          private: true
   updateAny:
     handler: src/handlers/updateAny.handler
     events:
     - http:
           path: /update
           method: post
-          
+          private: true
+  submitEntry:
+    handler: src/handlers/submitEntry.handler
+    events:
+    - http:
+          path: /submit/entry
+          method: post
+          private: true
+  submitPromo:
+    handler: src/handlers/submitPromo.handler
+    events:
+    - http:
+          path: /submit/promo
+          method: post
+          private: true    
+  submitSocial:
+    handler: src/handlers/submitSocial.handler
+    events:
+    - http:
+          path: /submit/social
+          method: post
+          private: true 
 
 resources:
   Resources:

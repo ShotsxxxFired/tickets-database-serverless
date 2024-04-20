@@ -11,7 +11,7 @@ module.exports.handler = async (event) => {
     const sk = `SOCIAL#${id}`
 
     const tableName = process.env.TABLE_NAME
-    const item = { PK: pk, SK: sk, Active: active, Type: type, Text: text, TicketsBase: ticketsBase, TicketsMulti: ticketsMulti, RedeemedCount: redeemedCount }
+    const item = { PK: pk, SK: sk, Active: active, Type: type, Text: text, TicketsBase: ticketsBase, TicketsMulti: ticketsMulti, RedeemedCount: 0 }
     const condExpress = "attribute_not_exists(PK)"
 
     const res = await create(tableName, item, condExpress)
