@@ -4,7 +4,7 @@ import { queryPage } from "../utils/queryPage.js"
 module.exports.handler = async (event) => {
     const { eventID } = event.pathParameters
 
-    const pk = `ENTRY#${eventID.split("#")[1]}`
+    const pk = `ENTRY#${eventID}`
 
     const tableName = process.env.TABLE_NAME
     const keyExpression = "PK = :pk"

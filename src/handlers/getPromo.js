@@ -2,7 +2,7 @@ import { get } from "../utils/get.js"
 
 module.exports.handler = async (event) => {
     const { eventID, code } = event.pathParameters
-    const pk = `PROMO#${eventID.split("#")[1]}`
+    const pk = `PROMO#${eventID}`
     const sk = `PROMO#${code}`
 
     const tableName = process.env.TABLE_NAME

@@ -3,10 +3,10 @@ import { get } from "../utils/get.js"
 module.exports.handler = async (event) => {
     const { socialID } = event.pathParameters
 
-    const year = new Date(decodeTime(socialID.split("#")[1])).getFullYear().toString()
+    const year = new Date(decodeTime(socialID)).getFullYear().toString()
 
     const pk = `SOCIAL#${year}`
-    const sk = socialID
+    const sk = "SOCIAL#" + socialID
     console.log("test")
 
     const tableName = process.env.TABLE_NAME

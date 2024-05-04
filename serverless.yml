@@ -71,7 +71,7 @@ functions:
     handler: src/handlers/getEntry.handler
     events:
     - http:
-          path: /event/{eventID}/entry
+          path: /event/{eventID}/wallet/{walletID}
           method: get
           private: true          
   createEvent:
