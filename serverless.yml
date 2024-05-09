@@ -220,7 +220,21 @@ functions:
     - http:
           path: /submit/social
           method: post
-          private: true 
+          private: true
+  setUserNickname:
+    handler: src/handlers/setUserNickname.handler
+    events:
+    - http:
+          path: /set/user/nickname
+          method: post
+          private: true
+  setUserTwitter:
+    handler: src/handlers/setUserTwitter.handler
+    events:
+    - http:
+          path: /set/user/twitter
+          method: post
+          private: true
 
 resources:
   Resources:

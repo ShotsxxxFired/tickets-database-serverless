@@ -9,23 +9,23 @@ module.exports.handler = async (event) => {
 
         const client = await getClient()
 
-        const pkSocialEntry = `SE#${eventID.split("#")[1]}`
+        const pkSocialEntry = `SE#${eventID}`
         const skSocialEntry = `SE#${walletID}`
 
-        const year = new Date(decodeTime(socialID.split("#")[1])).getFullYear().toString()
+        const year = new Date(decodeTime(socialID)).getFullYear().toString()
         const pkSocial = `SOCIAL#${year}`
-        const skSocial = socialID
+        const skSocial = `SOCIAL#${socialID}`
 
         const keySocial = { PK: { "S": pkSocial }, SK: { "S": skSocial } }
 
-        const pkEntry = `ENTRY#${eventID.split("#")[1]}`
+        const pkEntry = `ENTRY#${eventID}`
         const skEntry = `USER#${walletID}`
 
         const keyEntry = { PK: { "S": pkEntry }, SK: { "S": skEntry } }
 
         const tableName = process.env.TABLE_NAME
         const condExpress = "attribute_not_exists(PK)"
-        const socialEntryItem = { PK: { "S": pkSocialEntry }, SK: { "S": skSocialEntry }, SocialID: { "S": socialID.split("#")[1] } }
+        const socialEntryItem = { PK: { "S": pkSocialEntry }, SK: { "S": skSocialEntry }, SocialID: { "S": socialID } }
         const input = {
             TransactItems: [
                 {
@@ -61,9 +61,9 @@ module.exports.handler = async (event) => {
 
             ]
         }
-
         const command = new TransactWriteItemsCommand(input)
         const res = await client.send(command)
+        console.log(res)
         const response = {
             statusCode: 200,
             body: JSON.stringify({
@@ -72,6 +72,7 @@ module.exports.handler = async (event) => {
         }
         return response
     } catch (error) {
+        console.log(error)
         const response = {
             statusCode: 400,
             body: JSON.stringify({
