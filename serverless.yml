@@ -180,8 +180,8 @@ functions:
           path: /contract/all
           method: get
           private: true
-  queryEntriesByEvent:
-    handler: src/handlers/queryEntriesByEvent.handler
+  queryLeaderboardByEvent:
+    handler: src/handlers/queryLeaderboardByEvent.handler
     events:
     - http:
           path: /event/{eventID}/entries
