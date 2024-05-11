@@ -245,6 +245,12 @@
         "LogGroupName": "/aws/lambda/dynamodb-tickets-prod-setUserTwitter"
       }
     },
+    "ScanUsersLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/dynamodb-tickets-prod-scanUsers"
+      }
+    },
     "IamRoleLambdaExecution": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -311,7 +317,8 @@
                     "dynamodb:GetItem",
                     "dynamodb:PutItem",
                     "dynamodb:Query",
-                    "dynamodb:UpdateItem"
+                    "dynamodb:UpdateItem",
+                    "dynamodb:Scan"
                   ],
                   "Resource": [
                     {
@@ -363,7 +370,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/createCollectionConfig.handler",
         "Runtime": "nodejs20.x",
@@ -395,7 +402,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/getCollectionConfig.handler",
         "Runtime": "nodejs20.x",
@@ -427,7 +434,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/createContractConfig.handler",
         "Runtime": "nodejs20.x",
@@ -459,7 +466,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/getContractConfig.handler",
         "Runtime": "nodejs20.x",
@@ -491,7 +498,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/createEntry.handler",
         "Runtime": "nodejs20.x",
@@ -523,7 +530,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/getEntry.handler",
         "Runtime": "nodejs20.x",
@@ -555,7 +562,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/createEvent.handler",
         "Runtime": "nodejs20.x",
@@ -587,7 +594,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/getEvent.handler",
         "Runtime": "nodejs20.x",
@@ -619,7 +626,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/createPromo.handler",
         "Runtime": "nodejs20.x",
@@ -651,7 +658,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/getPromo.handler",
         "Runtime": "nodejs20.x",
@@ -683,7 +690,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/createPromoEntry.handler",
         "Runtime": "nodejs20.x",
@@ -715,7 +722,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/getPromoEntry.handler",
         "Runtime": "nodejs20.x",
@@ -747,7 +754,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/createSocial.handler",
         "Runtime": "nodejs20.x",
@@ -779,7 +786,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/getSocial.handler",
         "Runtime": "nodejs20.x",
@@ -811,7 +818,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/createSocialEntry.handler",
         "Runtime": "nodejs20.x",
@@ -843,7 +850,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/getSocialEntry.handler",
         "Runtime": "nodejs20.x",
@@ -875,7 +882,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/createUser.handler",
         "Runtime": "nodejs20.x",
@@ -907,7 +914,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/getUser.handler",
         "Runtime": "nodejs20.x",
@@ -939,7 +946,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/queryActiveSocial.handler",
         "Runtime": "nodejs20.x",
@@ -971,7 +978,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/queryCollectionConfig.handler",
         "Runtime": "nodejs20.x",
@@ -1003,7 +1010,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/queryContractConfig.handler",
         "Runtime": "nodejs20.x",
@@ -1035,7 +1042,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/queryEntriesByEvent.handler",
         "Runtime": "nodejs20.x",
@@ -1067,7 +1074,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/queryRecentEvents.handler",
         "Runtime": "nodejs20.x",
@@ -1099,7 +1106,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/updateAny.handler",
         "Runtime": "nodejs20.x",
@@ -1131,7 +1138,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/submitEntry.handler",
         "Runtime": "nodejs20.x",
@@ -1163,7 +1170,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/submitPromo.handler",
         "Runtime": "nodejs20.x",
@@ -1195,7 +1202,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/submitSocial.handler",
         "Runtime": "nodejs20.x",
@@ -1227,7 +1234,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/setUserNickname.handler",
         "Runtime": "nodejs20.x",
@@ -1259,7 +1266,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-tickets/prod/1715291047933-2024-05-09T21:44:07.933Z/dynamodb-tickets.zip"
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
         },
         "Handler": "src/handlers/setUserTwitter.handler",
         "Runtime": "nodejs20.x",
@@ -1284,294 +1291,336 @@
         "SetUserTwitterLogGroup"
       ]
     },
-    "CreateCollectionCongfigLambdaVersionFTNaZPDneTv1P9hRteffXwl3Ht976bwvYqcrJRdW3SU": {
+    "ScanUsersLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/dynamodb-tickets/prod/1715376334113-2024-05-10T21:25:34.113Z/dynamodb-tickets.zip"
+        },
+        "Handler": "src/handlers/scanUsers.handler",
+        "Runtime": "nodejs20.x",
+        "FunctionName": "dynamodb-tickets-prod-scanUsers",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "TABLE_NAME": {
+              "Ref": "TicketsTable"
+            }
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "ScanUsersLogGroup"
+      ]
+    },
+    "CreateCollectionCongfigLambdaVersionGC7pAySvDpvXpNSg3PkpQvU8YvUH8ET8aLbTyw7trU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateCollectionCongfigLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "GetCollectionConfigLambdaVersionHw9hcK3V9keaqQcX3549iSIRNz4vq3ITbTONw96sPc": {
+    "GetCollectionConfigLambdaVersionVi0kjUQFnJDG6MIgm4YAFPZISxd2VazNkxPNRocKI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetCollectionConfigLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "CreateContractConfigLambdaVersion9O4jlukhLNlBBd087XVi9yUmBMcYBY9C0FhUXJt6OkQ": {
+    "CreateContractConfigLambdaVersionPsdm3WRG5Zmm5QjUWedRq08RE4RJc1sLCrJyUc0zps": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateContractConfigLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "GetContractConfigLambdaVersiontwbbh1oK8Jj57wx5R105iQC9PRBOSky1MHU99EMN3Vw": {
+    "GetContractConfigLambdaVersionuatagIMi0yY9E1jrItoLcjRZZQTejzxPJlYps6IkE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetContractConfigLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "CreateEntryLambdaVersionY2k6yTJkMFqiLFQuDCBQUSVcAhlK4f3XUzOxOcAjw": {
+    "CreateEntryLambdaVersionHZLho2KoAlM8VDqK6rxPNbs8AXlDDAGngM9omRsAc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateEntryLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "GetEntryLambdaVersionZe1f6hG8FADhFawURuxI7gUK5T4qrbWRyMqKYdUHAo": {
+    "GetEntryLambdaVersionGCMIQQfp7LldwgATHAzREs6AnKnsi53Qj0vwpHsgPc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetEntryLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "CreateEventLambdaVersion4uAlWzuLPemU01W7mvwZRn698ZQZ7Vw3Bun2fL02iiY": {
+    "CreateEventLambdaVersionWOJV5pwMjnjLeqDhfInHJaGFucqbsZ9QZWdM3ily24": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateEventLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "GetEventLambdaVersion1Wvef2kWVxZFm2DB4EDMQ7S91Y8dWSmbgMmq5Q8DcI": {
+    "GetEventLambdaVersion75KaZvFauxDLPmfwd0VQVt9Q0liNGCaJ6sd0I": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetEventLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "CreatePromoLambdaVersioniG69FISlz4YgI1bDrFjEjTpElvQZS9xZ2ExwDhwUwpM": {
+    "CreatePromoLambdaVersion9zzztJ69GQqAm46PqsaW5VxIkMThGRlkMI8513no": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreatePromoLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "GetPromoLambdaVersionSoed5CcddDhsf5YGgwzDZaVpWQSF480bRIJ7lLpKO7c": {
+    "GetPromoLambdaVersionEVp4IzchQhorM4bUQGHonpvBu2SFRqVAhtr4KteiU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetPromoLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "CreatePromoEntryLambdaVersionEjXPCaJlsDT4T8GxHHRRWfZSu1b7UuWUUQQ4nepTuY": {
+    "CreatePromoEntryLambdaVersionjDJkPO0tIeoBaHngNrp8jU1woh4bOB0INDgxF1Qn4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreatePromoEntryLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "GetPromoEntryLambdaVersion0rOp0ALsn8Mem0mEcsdKBUgClHZHk8A0ibnw2maIYU": {
+    "GetPromoEntryLambdaVersionBSrjXtRNTcAGyV3nj15jikJQnDu25nTxOsZsgk4OCU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetPromoEntryLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "CreateSocialLambdaVersionyUctBvFK0vPUMRIrzNTnD4zgK82xYy8gDJVmdd5jIlA": {
+    "CreateSocialLambdaVersiontDYP5Z2LMBHXpU5ihuLlt3iQvHoM4NCfDjrFaEDKv64": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateSocialLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "GetSocialLambdaVersionBgt4lllnLOoUqGZS7NYYaaB0XXuX8k8hUHiqWd7ZLE": {
+    "GetSocialLambdaVersionpIf1IumJgFYw553pCroh0AMXZbUCAcbtMMRMJJ6g": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetSocialLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "CreateSocialEntryLambdaVersion97xupguQSbRjFliVoluJIV2knJFdUvKYKrVev6gk": {
+    "CreateSocialEntryLambdaVersionZClRqvcmYP5m7E7oBRXsYt23TwlIOsNn7sh2Fe4Hfgk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateSocialEntryLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "GetSocialEntryLambdaVersionX4HrlH6Hjna5xM0EgRR9cdKSctsvZxkeuxGdbN9c": {
+    "GetSocialEntryLambdaVersionW1skTI6Pr3RxqIP6DYX7zNevo5rWEnDEBcrAwI1S6Q": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetSocialEntryLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "CreateUserLambdaVersionW9CcGWiC05mIOovTXvsCJw398wzu6SEloaCDwktJug": {
+    "CreateUserLambdaVersionanZPLXI8X6BmNzF1cMRu5vve1zeKKd0ZOi2NKxFTU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateUserLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "GetUserLambdaVersionSX9TrvZ2845xYckliKAXTLxYqdbvPtkJ1R5DXDkyc": {
+    "GetUserLambdaVersionD9Ng9jEf1Y6BqOiUMqTmpwrcizq2KT76ldWd84ULjs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetUserLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "QueryActiveSocialLambdaVersionMFx9ll4cgRQNvLFgxjOyvOkEnBkYUDF0TOvX1RNuPWk": {
+    "QueryActiveSocialLambdaVersionbxtsHjyGGFcO60JvtSyhKX4YsWNzldIsElevZNEes": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "QueryActiveSocialLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "QueryCollectionConfigLambdaVersion4FhpvyqtM9kxR6FUWrWIBa0MFUZl7HSwGTKHdJgyIY": {
+    "QueryCollectionConfigLambdaVersionPwN035PuOmrrqpI54edbvGXqDNgQchmuyBnnyY72JuM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "QueryCollectionConfigLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "QueryContractConfigLambdaVersionPSOXGJwuBnpa89T0qyjacO9cnBRNTaaj4AqFhvHe9VU": {
+    "QueryContractConfigLambdaVersionwmLnulpKmr86ojKDqhRi6ZrST1Ri2MrwbEwvCMtz8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "QueryContractConfigLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "QueryEntriesByEventLambdaVersionux8NMmx8gzZdkDXPfjr53la62Kdqa17f40jqZ0Q": {
+    "QueryEntriesByEventLambdaVersionk7izOlYmwDEF5nPRjsHcqmpleiQo5auIvxbcroosSc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "QueryEntriesByEventLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "QueryRecentEventsLambdaVersionJujQn0JVqp1S6Q5ePNoPEaol1KFcrvdutuAquWLlU": {
+    "QueryRecentEventsLambdaVersionHWOhmoiq2TwnCOQkzQR1CN8knKD9XjyvXSxt2E2agFc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "QueryRecentEventsLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "UpdateAnyLambdaVersiondd0oqPWem2UJnNC6E23AuGw24RmI1VvXtXbTMimdwE": {
+    "UpdateAnyLambdaVersionOzQUrKbEOlfmceTJi3cDXg6tbq9Bxx9QqEXgNkyaE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateAnyLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "SubmitEntryLambdaVersiony9sRG1CMTD4JbOeq2AJRPE3URiFYgANwMUp5Mgsc6TI": {
+    "SubmitEntryLambdaVersionbGK4SUzLhbIbuIfHcBvPY57FG5Mx8cF3xVdJSHEKI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SubmitEntryLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "SubmitPromoLambdaVersionVWkhUO8wHoPvtMSOs9Lt9uhQcYlZFpmA4CeENCMtw": {
+    "SubmitPromoLambdaVersionCaW0DGHUBCuZHbTxPvvB8o4BrwBckwDDAIgKqAc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SubmitPromoLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "SubmitSocialLambdaVersionoqVgU8f22ehXBpFp5k9KPNPsTMBLVqzNOzrxuhmh4": {
+    "SubmitSocialLambdaVersionJbyutrdE5cvDGn9JtKUNxEmeSN6boiFUZGKCoNgxUx0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SubmitSocialLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "SetUserNicknameLambdaVersionvRyc1TG79ZLmMibbPnC1edgJIIs6DZmy4ECxMTuk": {
+    "SetUserNicknameLambdaVersionVCNyXc795i1dr8AEnJ7fFu3o3qEnqQrWAuIeF8qg": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SetUserNicknameLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
-    "SetUserTwitterLambdaVersionCOXSYojjLXp8790YXdGCsNnicDaBBGxH0H6LUFkY": {
+    "SetUserTwitterLambdaVersionsQZYf3tBJFi15UvDMh46SUCXrMjKdiJiNBHvKynJQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SetUserTwitterLambdaFunction"
         },
-        "CodeSha256": "AtmNS7eVX4EBafQOKwVTTVr/1ia8gSe2tkzH8/Eoxl0="
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
+      }
+    },
+    "ScanUsersLambdaVersionFimUMszQINpyJXOZQ0DVY7BFuzPT7NCiMWJM06hVaw": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "ScanUsersLambdaFunction"
+        },
+        "CodeSha256": "luiRcdJTShQh4LabV3ZUBPBJuFVCOsuG24ItGeme1DE="
       }
     },
     "ApiGatewayRestApi": {
@@ -2148,6 +2197,33 @@
           "Ref": "ApiGatewayResourceSetUser"
         },
         "PathPart": "twitter",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceScan": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "scan",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceScanUsers": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceScan"
+        },
+        "PathPart": "users",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
@@ -3487,7 +3563,53 @@
         "SetUserTwitterLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1715291046599": {
+    "ApiGatewayMethodScanUsersGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceScanUsers"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": true,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "ScanUsersLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      },
+      "DependsOn": [
+        "ScanUsersLambdaPermissionApiGateway"
+      ]
+    },
+    "ApiGatewayDeployment1715376332737": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -3524,7 +3646,8 @@
         "ApiGatewayMethodSubmitPromoPost",
         "ApiGatewayMethodSubmitSocialPost",
         "ApiGatewayMethodSetUserNicknamePost",
-        "ApiGatewayMethodSetUserTwitterPost"
+        "ApiGatewayMethodSetUserTwitterPost",
+        "ApiGatewayMethodScanUsersGet"
       ]
     },
     "CreateCollectionCongfigLambdaPermissionApiGateway": {
@@ -4600,6 +4723,43 @@
         }
       }
     },
+    "ScanUsersLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "ScanUsersLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
     "TicketsTable": {
       "Type": "AWS::DynamoDB::Table",
       "Properties": {
@@ -4665,7 +4825,7 @@
     "CreateCollectionCongfigLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateCollectionCongfigLambdaVersionFTNaZPDneTv1P9hRteffXwl3Ht976bwvYqcrJRdW3SU"
+        "Ref": "CreateCollectionCongfigLambdaVersionGC7pAySvDpvXpNSg3PkpQvU8YvUH8ET8aLbTyw7trU"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-CreateCollectionCongfigLambdaFunctionQualifiedArn"
@@ -4674,7 +4834,7 @@
     "GetCollectionConfigLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetCollectionConfigLambdaVersionHw9hcK3V9keaqQcX3549iSIRNz4vq3ITbTONw96sPc"
+        "Ref": "GetCollectionConfigLambdaVersionVi0kjUQFnJDG6MIgm4YAFPZISxd2VazNkxPNRocKI"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-GetCollectionConfigLambdaFunctionQualifiedArn"
@@ -4683,7 +4843,7 @@
     "CreateContractConfigLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateContractConfigLambdaVersion9O4jlukhLNlBBd087XVi9yUmBMcYBY9C0FhUXJt6OkQ"
+        "Ref": "CreateContractConfigLambdaVersionPsdm3WRG5Zmm5QjUWedRq08RE4RJc1sLCrJyUc0zps"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-CreateContractConfigLambdaFunctionQualifiedArn"
@@ -4692,7 +4852,7 @@
     "GetContractConfigLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetContractConfigLambdaVersiontwbbh1oK8Jj57wx5R105iQC9PRBOSky1MHU99EMN3Vw"
+        "Ref": "GetContractConfigLambdaVersionuatagIMi0yY9E1jrItoLcjRZZQTejzxPJlYps6IkE"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-GetContractConfigLambdaFunctionQualifiedArn"
@@ -4701,7 +4861,7 @@
     "CreateEntryLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateEntryLambdaVersionY2k6yTJkMFqiLFQuDCBQUSVcAhlK4f3XUzOxOcAjw"
+        "Ref": "CreateEntryLambdaVersionHZLho2KoAlM8VDqK6rxPNbs8AXlDDAGngM9omRsAc"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-CreateEntryLambdaFunctionQualifiedArn"
@@ -4710,7 +4870,7 @@
     "GetEntryLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetEntryLambdaVersionZe1f6hG8FADhFawURuxI7gUK5T4qrbWRyMqKYdUHAo"
+        "Ref": "GetEntryLambdaVersionGCMIQQfp7LldwgATHAzREs6AnKnsi53Qj0vwpHsgPc"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-GetEntryLambdaFunctionQualifiedArn"
@@ -4719,7 +4879,7 @@
     "CreateEventLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateEventLambdaVersion4uAlWzuLPemU01W7mvwZRn698ZQZ7Vw3Bun2fL02iiY"
+        "Ref": "CreateEventLambdaVersionWOJV5pwMjnjLeqDhfInHJaGFucqbsZ9QZWdM3ily24"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-CreateEventLambdaFunctionQualifiedArn"
@@ -4728,7 +4888,7 @@
     "GetEventLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetEventLambdaVersion1Wvef2kWVxZFm2DB4EDMQ7S91Y8dWSmbgMmq5Q8DcI"
+        "Ref": "GetEventLambdaVersion75KaZvFauxDLPmfwd0VQVt9Q0liNGCaJ6sd0I"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-GetEventLambdaFunctionQualifiedArn"
@@ -4737,7 +4897,7 @@
     "CreatePromoLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreatePromoLambdaVersioniG69FISlz4YgI1bDrFjEjTpElvQZS9xZ2ExwDhwUwpM"
+        "Ref": "CreatePromoLambdaVersion9zzztJ69GQqAm46PqsaW5VxIkMThGRlkMI8513no"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-CreatePromoLambdaFunctionQualifiedArn"
@@ -4746,7 +4906,7 @@
     "GetPromoLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetPromoLambdaVersionSoed5CcddDhsf5YGgwzDZaVpWQSF480bRIJ7lLpKO7c"
+        "Ref": "GetPromoLambdaVersionEVp4IzchQhorM4bUQGHonpvBu2SFRqVAhtr4KteiU"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-GetPromoLambdaFunctionQualifiedArn"
@@ -4755,7 +4915,7 @@
     "CreatePromoEntryLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreatePromoEntryLambdaVersionEjXPCaJlsDT4T8GxHHRRWfZSu1b7UuWUUQQ4nepTuY"
+        "Ref": "CreatePromoEntryLambdaVersionjDJkPO0tIeoBaHngNrp8jU1woh4bOB0INDgxF1Qn4"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-CreatePromoEntryLambdaFunctionQualifiedArn"
@@ -4764,7 +4924,7 @@
     "GetPromoEntryLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetPromoEntryLambdaVersion0rOp0ALsn8Mem0mEcsdKBUgClHZHk8A0ibnw2maIYU"
+        "Ref": "GetPromoEntryLambdaVersionBSrjXtRNTcAGyV3nj15jikJQnDu25nTxOsZsgk4OCU"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-GetPromoEntryLambdaFunctionQualifiedArn"
@@ -4773,7 +4933,7 @@
     "CreateSocialLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateSocialLambdaVersionyUctBvFK0vPUMRIrzNTnD4zgK82xYy8gDJVmdd5jIlA"
+        "Ref": "CreateSocialLambdaVersiontDYP5Z2LMBHXpU5ihuLlt3iQvHoM4NCfDjrFaEDKv64"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-CreateSocialLambdaFunctionQualifiedArn"
@@ -4782,7 +4942,7 @@
     "GetSocialLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetSocialLambdaVersionBgt4lllnLOoUqGZS7NYYaaB0XXuX8k8hUHiqWd7ZLE"
+        "Ref": "GetSocialLambdaVersionpIf1IumJgFYw553pCroh0AMXZbUCAcbtMMRMJJ6g"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-GetSocialLambdaFunctionQualifiedArn"
@@ -4791,7 +4951,7 @@
     "CreateSocialEntryLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateSocialEntryLambdaVersion97xupguQSbRjFliVoluJIV2knJFdUvKYKrVev6gk"
+        "Ref": "CreateSocialEntryLambdaVersionZClRqvcmYP5m7E7oBRXsYt23TwlIOsNn7sh2Fe4Hfgk"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-CreateSocialEntryLambdaFunctionQualifiedArn"
@@ -4800,7 +4960,7 @@
     "GetSocialEntryLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetSocialEntryLambdaVersionX4HrlH6Hjna5xM0EgRR9cdKSctsvZxkeuxGdbN9c"
+        "Ref": "GetSocialEntryLambdaVersionW1skTI6Pr3RxqIP6DYX7zNevo5rWEnDEBcrAwI1S6Q"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-GetSocialEntryLambdaFunctionQualifiedArn"
@@ -4809,7 +4969,7 @@
     "CreateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateUserLambdaVersionW9CcGWiC05mIOovTXvsCJw398wzu6SEloaCDwktJug"
+        "Ref": "CreateUserLambdaVersionanZPLXI8X6BmNzF1cMRu5vve1zeKKd0ZOi2NKxFTU"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-CreateUserLambdaFunctionQualifiedArn"
@@ -4818,7 +4978,7 @@
     "GetUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetUserLambdaVersionSX9TrvZ2845xYckliKAXTLxYqdbvPtkJ1R5DXDkyc"
+        "Ref": "GetUserLambdaVersionD9Ng9jEf1Y6BqOiUMqTmpwrcizq2KT76ldWd84ULjs"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-GetUserLambdaFunctionQualifiedArn"
@@ -4827,7 +4987,7 @@
     "QueryActiveSocialLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "QueryActiveSocialLambdaVersionMFx9ll4cgRQNvLFgxjOyvOkEnBkYUDF0TOvX1RNuPWk"
+        "Ref": "QueryActiveSocialLambdaVersionbxtsHjyGGFcO60JvtSyhKX4YsWNzldIsElevZNEes"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-QueryActiveSocialLambdaFunctionQualifiedArn"
@@ -4836,7 +4996,7 @@
     "QueryCollectionConfigLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "QueryCollectionConfigLambdaVersion4FhpvyqtM9kxR6FUWrWIBa0MFUZl7HSwGTKHdJgyIY"
+        "Ref": "QueryCollectionConfigLambdaVersionPwN035PuOmrrqpI54edbvGXqDNgQchmuyBnnyY72JuM"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-QueryCollectionConfigLambdaFunctionQualifiedArn"
@@ -4845,7 +5005,7 @@
     "QueryContractConfigLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "QueryContractConfigLambdaVersionPSOXGJwuBnpa89T0qyjacO9cnBRNTaaj4AqFhvHe9VU"
+        "Ref": "QueryContractConfigLambdaVersionwmLnulpKmr86ojKDqhRi6ZrST1Ri2MrwbEwvCMtz8"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-QueryContractConfigLambdaFunctionQualifiedArn"
@@ -4854,7 +5014,7 @@
     "QueryEntriesByEventLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "QueryEntriesByEventLambdaVersionux8NMmx8gzZdkDXPfjr53la62Kdqa17f40jqZ0Q"
+        "Ref": "QueryEntriesByEventLambdaVersionk7izOlYmwDEF5nPRjsHcqmpleiQo5auIvxbcroosSc"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-QueryEntriesByEventLambdaFunctionQualifiedArn"
@@ -4863,7 +5023,7 @@
     "QueryRecentEventsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "QueryRecentEventsLambdaVersionJujQn0JVqp1S6Q5ePNoPEaol1KFcrvdutuAquWLlU"
+        "Ref": "QueryRecentEventsLambdaVersionHWOhmoiq2TwnCOQkzQR1CN8knKD9XjyvXSxt2E2agFc"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-QueryRecentEventsLambdaFunctionQualifiedArn"
@@ -4872,7 +5032,7 @@
     "UpdateAnyLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateAnyLambdaVersiondd0oqPWem2UJnNC6E23AuGw24RmI1VvXtXbTMimdwE"
+        "Ref": "UpdateAnyLambdaVersionOzQUrKbEOlfmceTJi3cDXg6tbq9Bxx9QqEXgNkyaE"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-UpdateAnyLambdaFunctionQualifiedArn"
@@ -4881,7 +5041,7 @@
     "SubmitEntryLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SubmitEntryLambdaVersiony9sRG1CMTD4JbOeq2AJRPE3URiFYgANwMUp5Mgsc6TI"
+        "Ref": "SubmitEntryLambdaVersionbGK4SUzLhbIbuIfHcBvPY57FG5Mx8cF3xVdJSHEKI"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-SubmitEntryLambdaFunctionQualifiedArn"
@@ -4890,7 +5050,7 @@
     "SubmitPromoLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SubmitPromoLambdaVersionVWkhUO8wHoPvtMSOs9Lt9uhQcYlZFpmA4CeENCMtw"
+        "Ref": "SubmitPromoLambdaVersionCaW0DGHUBCuZHbTxPvvB8o4BrwBckwDDAIgKqAc"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-SubmitPromoLambdaFunctionQualifiedArn"
@@ -4899,7 +5059,7 @@
     "SubmitSocialLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SubmitSocialLambdaVersionoqVgU8f22ehXBpFp5k9KPNPsTMBLVqzNOzrxuhmh4"
+        "Ref": "SubmitSocialLambdaVersionJbyutrdE5cvDGn9JtKUNxEmeSN6boiFUZGKCoNgxUx0"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-SubmitSocialLambdaFunctionQualifiedArn"
@@ -4908,7 +5068,7 @@
     "SetUserNicknameLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SetUserNicknameLambdaVersionvRyc1TG79ZLmMibbPnC1edgJIIs6DZmy4ECxMTuk"
+        "Ref": "SetUserNicknameLambdaVersionVCNyXc795i1dr8AEnJ7fFu3o3qEnqQrWAuIeF8qg"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-SetUserNicknameLambdaFunctionQualifiedArn"
@@ -4917,10 +5077,19 @@
     "SetUserTwitterLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SetUserTwitterLambdaVersionCOXSYojjLXp8790YXdGCsNnicDaBBGxH0H6LUFkY"
+        "Ref": "SetUserTwitterLambdaVersionsQZYf3tBJFi15UvDMh46SUCXrMjKdiJiNBHvKynJQ"
       },
       "Export": {
         "Name": "sls-dynamodb-tickets-prod-SetUserTwitterLambdaFunctionQualifiedArn"
+      }
+    },
+    "ScanUsersLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "ScanUsersLambdaVersionFimUMszQINpyJXOZQ0DVY7BFuzPT7NCiMWJM06hVaw"
+      },
+      "Export": {
+        "Name": "sls-dynamodb-tickets-prod-ScanUsersLambdaFunctionQualifiedArn"
       }
     },
     "ServiceEndpoint": {

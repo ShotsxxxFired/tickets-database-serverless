@@ -16,6 +16,7 @@ provider:
         - "dynamodb:PutItem"
         - "dynamodb:Query"
         - "dynamodb:UpdateItem"
+        - "dynamodb:Scan"
       Resource:
         - Fn::GetAtt:
           - TicketsTable 
@@ -234,6 +235,13 @@ functions:
     - http:
           path: /set/user/twitter
           method: post
+          private: true
+  scanUsers:
+    handler: src/handlers/scanUsers.handler
+    events:
+    - http:
+          path: /scan/users
+          method: get
           private: true
 
 resources:
