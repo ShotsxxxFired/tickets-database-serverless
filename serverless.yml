@@ -17,6 +17,7 @@ provider:
         - "dynamodb:Query"
         - "dynamodb:UpdateItem"
         - "dynamodb:Scan"
+        - "dynamodb:DeleteItem"
       Resource:
         - Fn::GetAtt:
           - TicketsTable 
@@ -187,6 +188,13 @@ functions:
           path: /event/{eventID}/entries
           method: get
           private: true
+  queryPromoEvents:
+    handler: src/handlers/queryPromoEvents.handler
+    events:
+    - http:
+          path: /event/{eventID}/promo
+          method: get
+          private: true
   queryRecentEvents:
     handler: src/handlers/queryRecentEvents.handler
     events:
@@ -242,6 +250,13 @@ functions:
     - http:
           path: /scan/users
           method: get
+          private: true
+  deleteItem:
+    handler: src/handlers/deleteItem.handler
+    events:
+    - http:
+          path: /delete
+          method: post
           private: true
 
 resources:
