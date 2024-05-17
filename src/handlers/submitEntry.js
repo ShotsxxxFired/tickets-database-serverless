@@ -4,15 +4,26 @@ import { decodeTime } from 'ulid'
 
 module.exports.handler = async (event) => {
     try {
-        const { eventID, walletID, fixedTickets, fixedMulti, holdingTickets, holdingMulti } = JSON.parse(event.body)
+        const { eventID, walletID, fixedTickets, fixedMulti, holdingTickets, holdingMulti, deadline } = JSON.parse(event.body)
         console.log(event.body)
+        console.log(Date.now())
+        if (deadline * 1000 < Date.now()) {
+            const response = {
+                statusCode: 400,
+                body: JSON.stringify({
+                    message: "This event has already expired!"
+                })
+            }
+
+            return response
+        }
+
         const client = await getClient()
 
         const pkEntry = `ENTRY#${eventID}`
         const skEntry = `USER#${walletID}`
 
         const time = decodeTime(eventID)
-        console.log(time)
         const year = new Date(time).getFullYear().toString()
         const month = new Date(time).getMonth().toString()
         let yearMonth = year + month.padStart(2, "0")

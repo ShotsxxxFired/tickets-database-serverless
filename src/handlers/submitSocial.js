@@ -4,8 +4,21 @@ import { decodeTime } from 'ulid'
 
 module.exports.handler = async (event) => {
     try {
-        const { eventID, walletID, socialID, socialTickets, socialMulti } = JSON.parse(event.body)
+        const { eventID, walletID, socialID, socialTickets, socialMulti, eventDeadline } = JSON.parse(event.body)
         //const { } = event.pathParameters
+        console.log(event.body)
+        console.log(Date.now())
+        if (eventDeadline * 1000 < Date.now()) {
+
+            const response = {
+                statusCode: 400,
+                body: JSON.stringify({
+                    message: "This event has already expired!"
+                })
+            }
+
+            return response
+        }
 
         const client = await getClient()
 

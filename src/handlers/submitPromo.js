@@ -4,8 +4,19 @@ import { get } from "../utils/get.js"
 
 module.exports.handler = async (event) => {
     try {
-        const { eventID, walletID, code } = JSON.parse(event.body)
+        const { eventID, walletID, code, eventDeadline } = JSON.parse(event.body)
+        console.log(event.body)
+        console.log(Date.now())
+        if (eventDeadline * 1000 < Date.now()) {
+            const response = {
+                statusCode: 400,
+                body: JSON.stringify({
+                    message: "This event has already expired!"
+                })
+            }
 
+            return response
+        }
         //Configuring this fields needed for the request is consolidated into the loadVariables method.
         const { keyPromo, keyEntry, tableName, condExpress, promoEntryItem, keyPromoEntry } = await loadVairables(eventID, walletID, code)
         // get client
@@ -32,7 +43,7 @@ module.exports.handler = async (event) => {
 
         const { promoTickets, promoMulti, deadline } = await getPromoData(eventID, code)
 
-        if (deadline < Date.now()) {
+        if (deadline * 1000 < Date.now()) {
             const response = {
                 statusCode: 400,
                 body: JSON.stringify({
