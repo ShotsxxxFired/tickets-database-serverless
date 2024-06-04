@@ -3,6 +3,7 @@ import { ulid } from 'ulid'
 
 module.exports.handler = async (event) => {
     const { eventID, code, ticketsBase, ticketsMulti, available, redeemedCount, deadline } = JSON.parse(event.body)
+    console.log(event.body)
     const pk = `PROMO#${eventID.split("#")[1]}`
     const sk = `PROMO#${code}`
     const tableName = process.env.TABLE_NAME

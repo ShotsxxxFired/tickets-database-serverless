@@ -8,7 +8,7 @@ export const update = async (tableName, key, updateItems) => {
     const docClient = DynamoDBDocumentClient.from(client);
     let updateExpression = "set"
     let attValues = {}
-
+    console.log(updateItems)
     for (let item of updateItems) {
         console.log(item)
         updateExpression += ` ${item.name} = :${item.name.toLowerCase()},`

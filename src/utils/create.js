@@ -14,6 +14,7 @@ export const create = async (tableName, item, condExpress) => {
 
     try {
         const res = await docClient.send(command)
+        res.item = item
         return res
     } catch (error) {
         console.log(error)
