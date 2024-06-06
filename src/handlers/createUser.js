@@ -1,7 +1,8 @@
 import { create } from "../utils/create.js"
 
 module.exports.handler = async (event) => {
-    const { } = JSON.parse(event.body)
+    console.log(event.body)
+    const { walletID } = JSON.parse(event.body)
     console.log(event)
     const userID = "USER#" + walletID
     const tableName = process.env.TABLE_NAME

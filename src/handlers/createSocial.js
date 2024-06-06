@@ -2,6 +2,7 @@ import { create } from "../utils/create.js"
 import { ulid, decodeTime } from 'ulid'
 
 module.exports.handler = async (event) => {
+    console.log(event.body)
     const { active, type, post, ticketsBase, ticketsMulti, redeemedCount } = JSON.parse(event.body)
     const id = ulid()
 

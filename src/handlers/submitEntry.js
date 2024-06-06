@@ -3,6 +3,7 @@ import { getClient } from "../utils/client.js"
 import { decodeTime } from 'ulid'
 
 module.exports.handler = async (event) => {
+    console.log(event.body)
     try {
         const { eventID, walletID, fixedTickets, fixedMulti, holdingTickets, holdingMulti, deadline } = JSON.parse(event.body)
         console.log(event.body)

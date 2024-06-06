@@ -2,6 +2,7 @@ import { create } from "../utils/create.js"
 import { ulid } from 'ulid'
 
 module.exports.handler = async (event) => {
+    console.log(event.body)
     const { eventID, code, ticketsBase, ticketsMulti, available, redeemedCount, deadline } = JSON.parse(event.body)
     console.log(event.body)
     const pk = `PROMO#${eventID.split("#")[1]}`

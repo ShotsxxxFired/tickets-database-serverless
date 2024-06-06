@@ -1,6 +1,7 @@
 import { create } from "../utils/create.js"
 
 module.exports.handler = async (event) => {
+    console.log(event.body)
     const { eventID, walletID, socialID } = JSON.parse(event.body)
 
     const pk = `SE#${eventID.split("#")[1]}`

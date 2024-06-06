@@ -3,6 +3,7 @@ import { getClient } from "../utils/client.js"
 import { decodeTime } from 'ulid'
 
 module.exports.handler = async (event) => {
+    console.log(event.body)
     try {
         const { eventID, walletID, socialID, socialTickets, socialMulti, eventDeadline } = JSON.parse(event.body)
         //const { } = event.pathParameters

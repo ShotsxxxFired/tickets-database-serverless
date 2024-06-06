@@ -9,6 +9,7 @@ import { update } from "../utils/update.js"
 import { decodeTime } from "ulid"
 
 module.exports.handler = async (event) => {
+    console.log(event.body)
     try {
         const { eventID, badWinners } = JSON.parse(event.body)
         //const { } = event.pathParameters

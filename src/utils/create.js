@@ -5,6 +5,7 @@ import { PutCommand, DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
 
 export const create = async (tableName, item, condExpress) => {
     const client = await getClient()
+
     const docClient = DynamoDBDocumentClient.from(client);
     const command = new PutCommand({
         TableName: tableName,

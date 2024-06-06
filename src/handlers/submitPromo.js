@@ -3,6 +3,7 @@ import { getClient } from "../utils/client.js"
 import { get } from "../utils/get.js"
 
 module.exports.handler = async (event) => {
+    console.log(event.body)
     try {
         const { eventID, walletID, code, eventDeadline } = JSON.parse(event.body)
         console.log(event.body)

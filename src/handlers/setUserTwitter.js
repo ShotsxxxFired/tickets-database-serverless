@@ -1,6 +1,7 @@
 import { update } from "../utils/update.js"
 
 module.exports.handler = async (event) => {
+    console.log(event.body)
     console.log("Setting user's twitter")
     const { walletID, twitter } = JSON.parse(event.body)
     const pk = "USER#" + walletID
