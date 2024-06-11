@@ -5,14 +5,25 @@ import { decodeTime } from 'ulid'
 module.exports.handler = async (event) => {
     console.log(event.body)
     try {
-        const { eventID, walletID, fixedTickets, fixedMulti, holdingTickets, holdingMulti, deadline } = JSON.parse(event.body)
+        const { eventID, walletID, fixedTickets, fixedMulti, holdingTickets, holdingMulti, deadline, startDate } = JSON.parse(event.body)
         console.log(event.body)
         console.log(Date.now())
-        if (deadline * 1000 < Date.now()) {
+        if (deadline < Date.now()) {
             const response = {
                 statusCode: 400,
                 body: JSON.stringify({
                     message: "This event has already expired!"
+                })
+            }
+
+            return response
+        }
+
+        if (startDate > Date.now()) {
+            const response = {
+                statusCode: 400,
+                body: JSON.stringify({
+                    message: "This event hasn't started yet!"
                 })
             }
 

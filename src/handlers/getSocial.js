@@ -7,7 +7,6 @@ module.exports.handler = async (event) => {
 
     const pk = `SOCIAL#${year}`
     const sk = "SOCIAL#" + socialID
-    console.log("test")
 
     const tableName = process.env.TABLE_NAME
     const key = { PK: pk, SK: sk }
