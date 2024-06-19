@@ -10,8 +10,15 @@ module.exports.handler = async (event) => {
     console.log(tableName)
     console.log(keyExpression)
     console.log(attValues)
-    const res = await query(tableName, keyExpression, attValues)
+    let res = await query(tableName, keyExpression, attValues)
 
+    let eventList = []
+    for (let event of res.Items) {
+        if ((event.StartDate * 1000) < Date.now()) {
+            eventList.push(event)
+        }
+    }
+    res.Items = eventList
     const response = {
         statusCode: 200,
         body: JSON.stringify({
