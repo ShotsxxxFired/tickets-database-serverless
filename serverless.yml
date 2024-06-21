@@ -201,6 +201,13 @@ functions:
           path: /time/{yearMonth}/events
           method: get
           private: true
+  queryAdminEvents:
+    handler: src/handlers/queryAdminEvents.handler
+    events:
+    - http:
+          path: /admin/events
+          method: get
+          private: true          
   updateAny:
     handler: src/handlers/updateAny.handler
     events:

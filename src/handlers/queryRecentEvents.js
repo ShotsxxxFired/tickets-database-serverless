@@ -12,6 +12,7 @@ module.exports.handler = async (event) => {
     console.log(attValues)
     let res = await query(tableName, keyExpression, attValues)
 
+
     let eventList = []
     for (let event of res.Items) {
         if ((event.StartDate * 1000) < Date.now()) {

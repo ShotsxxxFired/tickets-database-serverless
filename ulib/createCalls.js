@@ -26,6 +26,7 @@ const eventCreate = async (event) => {
                 'x-api-key': apiKey
             }
         }
+        console.log(options)
         const response = await axios(options)
         if (!response.data.res.item) {
             console.log(response.data)

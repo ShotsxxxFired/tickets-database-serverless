@@ -158,7 +158,6 @@ const run = async () => {
                 resItems = await scan(tableName, resItems.exclusiveStartKey)
                 allItems = allItems.concat(resItems.Items)
             }
-            console.log(allItems)
             let deleteRes = await deleteTable(tableName, allItems)
             if (!deleteRes) {
                 console.log("Unable to delete table, aborting process")
