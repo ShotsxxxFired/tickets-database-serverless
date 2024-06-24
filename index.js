@@ -128,6 +128,61 @@ const addTestValues = async () => {
     console.log(` `)
 }
 
+const addProdValues = async () => {
+
+    //#region Create Contracts based on the config.js
+    console.log(`Adding Test Contracts`)
+    successCount = 0
+
+    for (let contract of contracts) {
+        let res = await contractCreate(contract)
+        if (res.data.res.item) {
+            successCount++
+        }
+    }
+    console.log(`Successfully created ${successCount}/${contracts.length} Contract(s)`)
+    console.log(` `)
+    //#endregion
+
+    //#region Create Configs based on the config.js
+    console.log(`Adding Test Configs`)
+    successCount = 0
+
+    for (let config of configs) {
+        let res = await configCreate(config)
+        if (res.data.res.item) {
+            successCount++
+        }
+    }
+    console.log(`Successfully created ${successCount}/${configs.length} Config(s)`)
+    console.log(` `)
+    //#endregion
+
+    //#region Create Test Social
+    console.log(`Adding Test Social`)
+    successCount = 0
+    let social = {
+        active: true,
+        type: "Twitter",
+        post: "Checkout ApeTickets @ grapes.gg/tickets!",
+        ticketsBase: 5,
+        ticketsMulti: 0,
+        redeemedCount: 0
+    }
+
+    let res = await socialCreate(social)
+    if (res.data.res.item) {
+        successCount++
+    }
+
+    console.log(`Successfully created ${successCount}/1 Social`)
+    console.log(` `)
+    //#endregion
+
+    console.log("Test values have all been added!")
+    console.log(` `)
+}
+
 const run = async () => {
 
     //let msg = `This function delete all items in AWS Dynamo Table: ${tableName} then redeploy the empty table!`
@@ -167,8 +222,13 @@ const run = async () => {
             console.log("")
         }
 
+        console.log("Choose Prod or Test values")
         //add the test values to the newly created server
-        await addTestValues()
+        //await addTestValues()
+
+        //adds prod values for launch
+        //await addProdValues()
+
         console.log("")
     } else {
         console.log("Process Aborted")

@@ -26,7 +26,6 @@ const eventCreate = async (event) => {
                 'x-api-key': apiKey
             }
         }
-        console.log(options)
         const response = await axios(options)
         if (!response.data.res.item) {
             console.log(response.data)
@@ -72,7 +71,7 @@ const contractCreate = async (contract) => {
 }
 
 const configCreate = async (config) => {
-    let { contractAddress, type, traitType, traitValue, quantMin, quantMax, ticketsBase, ticketsMulti, listed } = config
+    let { contractAddress, type, traitType, traitValue, quantMin, quantMax, ticketsBase, ticketsMulti, listed, forEach } = config
     try {
         const options = {
             method: "post",
@@ -81,6 +80,7 @@ const configCreate = async (config) => {
                 contractAddress,
                 type,
                 traitType,
+                forEach: forEach,
                 traitValue,
                 quantMin,
                 quantMax,
