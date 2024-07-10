@@ -108,7 +108,7 @@ const addTestValues = async () => {
     successCount = 0
     let social = {
         active: true,
-        type: "Twitter",
+        site: "Twitter",
         post: "TEST POST FOR APETICKETS!",
         ticketsBase: 5,
         ticketsMulti: 5,
@@ -131,7 +131,7 @@ const addTestValues = async () => {
 const addProdValues = async () => {
 
     //#region Create Contracts based on the config.js
-    console.log(`Adding Test Contracts`)
+    console.log(`Adding Prod Contracts`)
     successCount = 0
 
     for (let contract of contracts) {
@@ -145,7 +145,7 @@ const addProdValues = async () => {
     //#endregion
 
     //#region Create Configs based on the config.js
-    console.log(`Adding Test Configs`)
+    console.log(`Adding Prod Configs`)
     successCount = 0
 
     for (let config of configs) {
@@ -159,27 +159,27 @@ const addProdValues = async () => {
     //#endregion
 
     //#region Create Test Social
-    console.log(`Adding Test Social`)
-    successCount = 0
-    let social = {
-        active: true,
-        type: "Twitter",
-        post: "Checkout ApeTickets @ grapes.gg/tickets!",
-        ticketsBase: 5,
-        ticketsMulti: 0,
-        redeemedCount: 0
-    }
+    // console.log(`Adding Prod Social`)
+    // successCount = 0
+    // let social = {
+    //     active: true,
+    //     site: "Twitter",
+    //     post: "I got to test new ApeTickets! /n/nFollow @grapes on X for more info!",
+    //     ticketsBase: 5,
+    //     ticketsMulti: 0,
+    //     redeemedCount: 0
+    // }
 
-    let res = await socialCreate(social)
-    if (res.data.res.item) {
-        successCount++
-    }
+    // let res = await socialCreate(social)
+    // if (res.data.res.item) {
+    //     successCount++
+    // }
 
-    console.log(`Successfully created ${successCount}/1 Social`)
-    console.log(` `)
+    // console.log(`Successfully created ${successCount}/1 Social`)
+    // console.log(` `)
     //#endregion
 
-    console.log("Test values have all been added!")
+    console.log("Prod values have all been added!")
     console.log(` `)
 }
 
@@ -227,7 +227,7 @@ const run = async () => {
         //await addTestValues()
 
         //adds prod values for launch
-        //await addProdValues()
+        await addProdValues()
 
         console.log("")
     } else {

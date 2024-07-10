@@ -42,7 +42,27 @@ module.exports.handler = async (event) => {
             return response
         }
 
-        const { promoTickets, promoMulti, deadline } = await getPromoData(eventID, code)
+        const { promoTickets, promoMulti, deadline, success, available } = await getPromoData(eventID, code)
+
+        if (!success) {
+            const response = {
+                statusCode: 400,
+                body: JSON.stringify({
+                    error: `Code: "${code}" does not exist!`
+                })
+            }
+            return response
+        }
+
+        if (!available) {
+            const response = {
+                statusCode: 400,
+                body: JSON.stringify({
+                    error: `No more uses for "${code}" are available!`
+                })
+            }
+            return response
+        }
 
         if (deadline * 1000 < Date.now()) {
             const response = {
@@ -53,15 +73,7 @@ module.exports.handler = async (event) => {
             }
             return response
         }
-        if (!promoTickets || !promoMulti) {
-            const response = {
-                statusCode: 400,
-                body: JSON.stringify({
-                    error: `Submitted code "${code}" does not exist for this event!`
-                })
-            }
-            return response
-        }
+
 
         //if there is no promo entry, create a new one
         if (!promoEntryExists) {
@@ -197,14 +209,18 @@ const getPromoData = async (eventID, code) => {
     const tableName = process.env.TABLE_NAME
     const key = { PK: pk, SK: sk }
     const res = await get(tableName, key)
+    console.log(res)
     if (res.Item) {
+        if (res.Item.Available < 1) {
+            return { success: true, available: false }
+        }
         let promoTickets = res.Item.TicketsBase
         let promoMulti = res.Item.TicketsMulti
         let deadline = res.Item.Deadline
 
-        return { promoTickets, promoMulti, deadline }
+        return { promoTickets, promoMulti, deadline, success: true, available: true }
     }
-    return (false, false, 0)
+    return { success: false, available: false }
 }
 
 const loadVairables = async (eventID, walletID, code) => {

@@ -41,7 +41,7 @@ const eventCreate = async (event) => {
 }
 
 const contractCreate = async (contract) => {
-    let { contractAddress, active } = contract
+    let { contractAddress, active, name } = contract
     try {
         const options = {
             method: "post",
@@ -49,6 +49,7 @@ const contractCreate = async (contract) => {
             data: {
                 contractAddress,
                 active,
+                name
             },
             headers: {
                 accept: 'application/json',
@@ -106,14 +107,14 @@ const configCreate = async (config) => {
 }
 
 const socialCreate = async (social) => {
-    let { active, type, post, ticketsBase, ticketsMulti, redeemedCount } = social
+    let { active, site, post, ticketsBase, ticketsMulti, redeemedCount } = social
     try {
         const options = {
             method: "post",
             url: `${baseURL}social`,
             data: {
                 active,
-                type,
+                site,
                 post,
                 ticketsBase,
                 ticketsMulti,

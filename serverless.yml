@@ -180,6 +180,13 @@ functions:
           path: /contract/all
           method: get
           private: true
+  queryEntries:
+    handler: src/handlers/queryEntries.handler
+    events:
+    - http:
+          path: /entries/{eventID}
+          method: get
+          private: true
   queryLeaderboardByEvent:
     handler: src/handlers/queryLeaderboardByEvent.handler
     events:

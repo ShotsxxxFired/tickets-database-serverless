@@ -117,6 +117,7 @@ let contracts = [
     {
         contractAddress: "0x9697745c6d279FAc17203756E40dEe4D2DbB6E39",
         active: true,
+        name: "Grapes",
     },
 ]
 
