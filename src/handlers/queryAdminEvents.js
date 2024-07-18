@@ -25,7 +25,7 @@ module.exports.handler = async (event) => {
     const response = {
         statusCode: 200,
         body: JSON.stringify({
-            eventList
+            res
         })
     }
     return response

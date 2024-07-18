@@ -4,6 +4,8 @@ plugins:
   - serverless-esbuild
   - serverless-offline
 
+useDotenv: true
+
 provider:
   name: aws
   runtime: nodejs20.x
@@ -27,10 +29,29 @@ provider:
           - - Fn::GetAtt:
               - TicketsTable 
               - Arn
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:BatchGetItem"
+        - "dynamodb:ConditionCheckItem"
+        - "dynamodb:GetItem"
+        - "dynamodb:PutItem"
+        - "dynamodb:Query"
+        - "dynamodb:UpdateItem"
+        - "dynamodb:Scan"
+        - "dynamodb:DeleteItem"
+      Resource:
+        - Fn::GetAtt:
+          - DrawTable 
+          - Arn
+        - Fn::Join: 
+          - "/"
+          - - Fn::GetAtt:
+              - DrawTable 
+              - Arn
   environment:
     TABLE_NAME: { Ref: TicketsTable }
-
-
+    DRAW_TABLE_NAME: { Ref: DrawTable }
+    ALCHEMY_API: ${env:ALCHEMY_API}
 
 functions:
   createCollectionCongfig:
@@ -275,6 +296,21 @@ functions:
 resources:
   Resources:
     TicketsTable:
+      Type: "AWS::DynamoDB::Table"
+      DeletionPolicy: Delete
+      Properties: 
+        AttributeDefinitions: 
+          - AttributeName: "PK"
+            AttributeType: "S"
+          - AttributeName: "SK"
+            AttributeType: "S"
+        KeySchema: 
+          - AttributeName: "PK"
+            KeyType: "HASH"
+          - AttributeName: "SK"
+            KeyType: "RANGE"
+        BillingMode: "PAY_PER_REQUEST"
+    DrawTable:
       Type: "AWS::DynamoDB::Table"
       DeletionPolicy: Delete
       Properties: 
