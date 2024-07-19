@@ -29,6 +29,11 @@ yarn-error.log*
 .env*.local
 .env
 
+# serverless build file
+.serverless
+/.serverless
+/.serverless/
+
 # vercel
 .vercel
 
