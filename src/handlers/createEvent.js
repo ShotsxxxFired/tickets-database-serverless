@@ -1,6 +1,7 @@
 import { TransactWriteItemsCommand } from "@aws-sdk/client-dynamodb"
 import { getClient } from "../utils/client.js"
 import { ulid, decodeTime } from 'ulid'
+import { devAlert, allAlert } from "../utils/smsAlert.js"
 
 module.exports.handler = async (event) => {
     console.log(event.body)
@@ -72,6 +73,8 @@ module.exports.handler = async (event) => {
                 res
             })
         }
+        let smsRes = await allAlert("Tickets Alert: Event has been created")
+        console.log(smsRes)
         return response
     } catch (error) {
         console.log(error)
@@ -81,7 +84,9 @@ module.exports.handler = async (event) => {
                 error
             })
         }
-
+        await allAlert(`Tickets Alert: event wasn't able to be created: ${JSON.stringify({
+            error
+        })}`)
         return response
     }
 
