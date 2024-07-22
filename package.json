@@ -1,15 +1,18 @@
 {
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.556.0",
+    "@aws-sdk/client-sfn": "^3.616.0",
     "@aws-sdk/lib-dynamodb": "^3.556.0",
     "@inquirer/prompts": "^5.0.5",
     "child_process": "^1.0.2",
     "dotenv": "^16.4.5",
     "truncate-eth-address": "^1.0.2",
+    "twilio": "^5.2.2",
     "ulid": "^2.3.0"
   },
   "devDependencies": {
     "serverless-esbuild": "^1.52.1",
-    "serverless-offline": "^13.3.3"
+    "serverless-offline": "^13.3.3",
+    "serverless-step-functions": "^3.21.0"
   }
 }

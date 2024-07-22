@@ -73,8 +73,8 @@ module.exports.handler = async (event) => {
                 res
             })
         }
-        let smsRes = await allAlert("Tickets Alert: Event has been created")
-        console.log(smsRes)
+        //let smsRes = await allAlert("Tickets Alert: Event has been created")
+        //console.log(smsRes)
         return response
     } catch (error) {
         console.log(error)

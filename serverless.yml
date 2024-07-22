@@ -3,7 +3,7 @@ service: dynamodb-tickets
 plugins:
   - serverless-esbuild
   - serverless-offline
-
+  - serverless-step-functions
 useDotenv: true
 
 provider:
@@ -39,6 +39,10 @@ provider:
         - "dynamodb:UpdateItem"
         - "dynamodb:Scan"
         - "dynamodb:DeleteItem"
+        - "dynamodb:GetRecords"
+        - "dynamodb:GetShardIterator"
+        - "dynamodb:DescribeStream"
+        - "dynamodb:ListStreams"
       Resource:
         - Fn::GetAtt:
           - DrawTable 
@@ -48,12 +52,30 @@ provider:
           - - Fn::GetAtt:
               - DrawTable 
               - Arn
+    - Effect: "Allow"
+      Action:
+        - "states:StartExecution"
+      Resource:
+        - "*"
   environment:
     TABLE_NAME: { Ref: TicketsTable }
     DRAW_TABLE_NAME: { Ref: DrawTable }
     ALCHEMY_API: ${env:ALCHEMY_API}
+    TWILIO_ACCOUNT_SID: ${env:TWILIO_ACCOUNT_SID}
+    TWILIO_AUTH_TOKEN: ${env:TWILIO_AUTH_TOKEN}
 
 functions:
+  drawWinner:
+    handler: src/handlers/draw/drawWinner.start
+  scheduleDraw:
+    handler: src/handlers/draw/scheduleDraw.start
+    events:
+    - stream: 
+        type: dynamodb
+        arn: 
+          Fn::GetAtt: ['DrawTable', 'StreamArn']
+    environment:
+      statemachine_arn: ${self:resources.Outputs.DrawWinnerFunc.Value}
   createCollectionCongfig:
     handler: src/handlers/createCollectionConfig.handler
     events:
@@ -293,6 +315,23 @@ functions:
           method: post
           private: true
 
+stepFunctions:
+  stateMachines:
+    drawWinnerFunction:
+      name: DrawWinnerFunc
+      definition:
+        StartAt: WaitForDraw
+        States:
+          WaitForDraw:
+            Type: Wait
+            Seconds: 10
+            Next: DrawWinnerNow
+          DrawWinnerNow:
+            Type: Task
+            Resource:
+              Fn::GetAtt: [drawWinner, Arn]
+            End: true
+
 resources:
   Resources:
     TicketsTable:
@@ -325,3 +364,10 @@ resources:
           - AttributeName: "SK"
             KeyType: "RANGE"
         BillingMode: "PAY_PER_REQUEST"
+        StreamSpecification:
+          StreamViewType: NEW_IMAGE
+  Outputs:
+    DrawWinnerFunc:
+      Description: The ARN of the Winner Draw Schedule State Machine
+      Value:
+        Ref: DrawWinnerFunc
