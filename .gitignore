@@ -33,6 +33,9 @@ yarn-error.log*
 .serverless
 /.serverless
 /.serverless/
+.serverless/*
+/.serverless
+/.serverless/
 
 # vercel
 .vercel
