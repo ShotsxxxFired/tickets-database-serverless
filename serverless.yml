@@ -324,7 +324,7 @@ stepFunctions:
         States:
           WaitForDraw:
             Type: Wait
-            Seconds: 10
+            SecondsPath: $.scheduledTime
             Next: DrawWinnerNow
           DrawWinnerNow:
             Type: Task

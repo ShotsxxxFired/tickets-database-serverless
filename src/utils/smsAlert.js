@@ -19,9 +19,10 @@ const others = [
 ]
 
 export const devAlert = async (message) => {
+    let msg = "Dev Only: " + message
     console.log(`Sending SMS: ${message}`)
     for (let contact of dev) {
-        res = await smsSend(message, contact.number)
+        res = await smsSend(msg, contact.number)
     }
     return res
 }
