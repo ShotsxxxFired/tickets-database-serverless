@@ -4,6 +4,7 @@
     "@aws-sdk/client-sfn": "^3.616.0",
     "@aws-sdk/lib-dynamodb": "^3.556.0",
     "@inquirer/prompts": "^5.0.5",
+    "alchemy-sdk": "^3.3.1",
     "child_process": "^1.0.2",
     "dotenv": "^16.4.5",
     "truncate-eth-address": "^1.0.2",

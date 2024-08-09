@@ -13,8 +13,6 @@ export const update = async (tableName, key, updateItems) => {
         console.log(item)
         updateExpression += ` ${item.name} = :${item.name.toLowerCase()},`
         attValues[`:${item.name.toLowerCase()}`] = item.value
-        console.log(attValues)
-        console.log(updateExpression)
     }
 
     updateExpression = updateExpression.slice(0, -1)

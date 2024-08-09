@@ -67,6 +67,7 @@ provider:
 functions:
   drawWinner:
     handler: src/handlers/draw/drawWinner.start
+    timeout: 300
   scheduleDraw:
     handler: src/handlers/draw/scheduleDraw.start
     events:

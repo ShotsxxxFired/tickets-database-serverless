@@ -10,8 +10,8 @@ module.exports.handler = async (event) => {
         const client = await getClient()
 
         const idEvent = ulid()
-        const idDraw = ulid()
         const time = decodeTime(idEvent)
+        const idDraw = ulid()
 
         const year = new Date(time).getFullYear().toString()
         const month = new Date(time).getMonth().toString()
@@ -40,7 +40,10 @@ module.exports.handler = async (event) => {
             PK: { "S": pkDraw },
             SK: { "S": skDraw },
             EndDate: { "S": endDate },
-            EventID: { "S": idEvent }
+            EventID: { "S": idEvent },
+            EventPK: { "S": pkEvent },
+            EventSK: { "S": skEvent }
+
         }
 
         const condExpress = "attribute_not_exists(PK)"
